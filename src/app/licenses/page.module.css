@@ -1,0 +1,57 @@
+.page { min-height: 100vh; padding-bottom: 4rem; }
+.hero { padding: 8rem 0 3rem; text-align: center; }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-top: 1rem; }
+.heroDesc { font-size: 1.1rem; color: var(--dark-200); max-width: 600px; margin: 1rem auto 0; }
+
+.sectionTitle { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+
+.industryGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.industryCard {
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  padding: 1.5rem 1rem; background: var(--dark-800); border: 1.5px solid var(--dark-600);
+  border-radius: var(--radius-lg); cursor: pointer; transition: all 0.3s ease;
+}
+.industryCard:hover { border-color: rgba(249, 115, 22, 0.3); transform: translateY(-2px); }
+.industryCard.selected { background: rgba(249, 115, 22, 0.05); }
+.industryIcon { font-size: 2rem; }
+.industryLabel { font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; color: var(--dark-100); }
+.industryCard.selected .industryLabel { color: #fff; }
+
+.filterRow {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;
+}
+.resultCount { font-size: 0.9rem; color: var(--dark-200); }
+.resultCount strong { color: #fff; }
+.filterToggle {
+  display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem;
+  color: var(--dark-200); cursor: pointer;
+}
+.filterToggle input { display: none; }
+.toggleTrack {
+  width: 40px; height: 22px; background: var(--dark-600); border-radius: 11px;
+  position: relative; transition: background 0.3s ease;
+}
+.filterToggle input:checked + .toggleTrack { background: var(--orange-500); }
+.toggleThumb {
+  position: absolute; top: 2px; left: 2px; width: 18px; height: 18px;
+  background: #fff; border-radius: 50%; transition: transform 0.3s ease;
+}
+.filterToggle input:checked + .toggleTrack .toggleThumb { transform: translateX(18px); }
+
+.licenseGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.25rem; }
+.licenseCard {
+  padding: 1.75rem; background: var(--dark-800); border: 1px solid var(--dark-600);
+  border-radius: var(--radius-lg); transition: all 0.3s ease;
+}
+.licenseCard:hover { border-color: rgba(249, 115, 22, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+.licenseHeader { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; }
+.licenseHeader h4 { color: #fff; font-size: 1rem; }
+.licenseDesc { font-size: 0.85rem; color: var(--dark-200); margin-bottom: 1rem; line-height: 1.5; }
+.licenseMeta { display: flex; flex-direction: column; gap: 0.4rem; }
+.metaItem { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--dark-100); }
+
+@media (max-width: 768px) {
+  .industryGrid { grid-template-columns: repeat(2, 1fr); }
+  .licenseGrid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,230 @@
+.page {
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
+
+.hero {
+  padding: 8rem 0 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-top: 1rem;
+}
+
+.heroDesc {
+  font-size: 1.1rem;
+  color: var(--dark-200);
+  max-width: 600px;
+  margin: 1rem auto 0;
+}
+
+/* Questionnaire */
+.questionnaire {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.progressWrapper {
+  margin-bottom: 2rem;
+}
+
+.progressInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--dark-200);
+  font-family: var(--font-display);
+}
+
+.questionCard {
+  background: var(--dark-800);
+  border: 1px solid var(--dark-600);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  position: relative;
+}
+
+.questionNumber {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--orange-500), rgba(249, 115, 22, 0.2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.questionText {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.optionBtn {
+  padding: 1rem 1.25rem;
+  background: var(--dark-700);
+  border: 1px solid var(--dark-500);
+  border-radius: var(--radius-md);
+  color: var(--dark-100);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.optionBtn:hover {
+  border-color: var(--orange-500);
+  color: #fff;
+  background: rgba(249, 115, 22, 0.08);
+}
+
+.optionBtn.selected {
+  border-color: var(--orange-500);
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--orange-400);
+}
+
+.numberInput {
+  display: flex;
+  gap: 1rem;
+  max-width: 400px;
+}
+
+.booleanBtns {
+  display: flex;
+  gap: 1rem;
+}
+
+.boolBtn {
+  flex: 1;
+  padding: 1.5rem;
+  background: var(--dark-700);
+  border: 1px solid var(--dark-500);
+  border-radius: var(--radius-lg);
+  color: #fff;
+  font-size: 1.1rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.boolBtn:hover {
+  border-color: var(--orange-500);
+  background: rgba(249, 115, 22, 0.08);
+}
+
+.backBtn {
+  margin-top: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--dark-200);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: var(--font-display);
+  transition: color 0.2s;
+}
+
+.backBtn:hover {
+  color: var(--orange-400);
+}
+
+/* Results */
+.results {
+  margin-top: 2rem;
+}
+
+.summaryCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.summaryCard {
+  padding: 1.5rem;
+  background: var(--dark-800);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  border: 1px solid var(--dark-600);
+}
+
+.summaryCard.critical { border-left: 3px solid #ef4444; }
+.summaryCard.high { border-left: 3px solid #f59e0b; }
+.summaryCard.recommended { border-left: 3px solid #22c55e; }
+.summaryCard.total { border-left: 3px solid var(--orange-500); }
+
+.summaryValue {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.summaryLabel {
+  font-size: 0.8rem;
+  color: var(--dark-200);
+  margin-top: 0.25rem;
+}
+
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tableWrapper {
+  background: var(--dark-800);
+  border: 1px solid var(--dark-600);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.reqCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.reqCell strong {
+  color: #fff;
+}
+
+.reqCell small {
+  color: var(--dark-300);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .summaryCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .questionCard {
+    padding: 2rem;
+  }
+
+  .optionsGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,603 @@
+/* ===== HERO SECTION ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 3rem);
+  gap: 2rem;
+  min-height: calc(100vh - 80px);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 2;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(249, 115, 22, 0.08);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--orange-400);
+  width: fit-content;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange-500);
+  animation: pulse-glow 2s infinite;
+}
+
+.heroTitle {
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  color: var(--dark-100);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.heroCTA {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.heroStats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--dark-700);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--orange-400), var(--orange-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--dark-200);
+  font-weight: 500;
+}
+
+.heroModel {
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
+
+.modelLoader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loaderRing {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid rgba(249, 115, 22, 0.1);
+  border-top-color: var(--orange-500);
+  animation: rotate-slow 1s linear infinite;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--dark-300);
+  z-index: 2;
+}
+
+/* ===== SECTION HEADER ===== */
+.sectionHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sectionHeader p {
+  font-size: 1.05rem;
+  color: var(--dark-200);
+}
+
+/* ===== PAIN SECTION ===== */
+.painSection {
+  position: relative;
+  background: var(--dark-900);
+}
+
+.painSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(249, 115, 22, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 115, 22, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.painGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+  position: relative;
+}
+
+.painCard {
+  position: relative;
+  padding: 1.75rem;
+  background: var(--dark-800);
+  border: 1px solid var(--dark-600);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.painCard:hover, .painCardActive {
+  border-color: rgba(249, 115, 22, 0.3);
+  background: var(--dark-700);
+}
+
+.painIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.painContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.painText {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  font-style: italic;
+}
+
+.painArrow {
+  color: var(--orange-500);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.solutionText {
+  font-size: 0.9rem;
+  color: var(--orange-300);
+  font-weight: 500;
+}
+
+.painGlow {
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ===== PILLARS SECTION ===== */
+.pillarsSection {
+  position: relative;
+  padding: 4rem 0;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.pillarsStickyHeader {
+  margin-bottom: 3rem;
+}
+
+.pillarsTrack {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 3rem;
+  will-change: transform;
+}
+
+.pillarCard {
+  flex-shrink: 0;
+  width: 380px;
+  padding: 2.5rem;
+  background: var(--dark-800);
+  border: 1px solid var(--dark-600);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pillarCard:hover {
+  border-color: rgba(249, 115, 22, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pillarNumber {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+
+.pillarIcon {
+  font-size: 2.5rem;
+}
+
+.pillarTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.pillarDesc {
+  font-size: 0.9rem;
+  color: var(--dark-200);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.pillarArrow {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: auto;
+  transition: transform 0.3s ease;
+}
+
+.pillarCard:hover .pillarArrow {
+  transform: translateX(8px);
+}
+
+.pillarGlow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  pointer-events: none;
+}
+
+/* ===== HOW IT WORKS SECTION ===== */
+.howSection {
+  background: var(--dark-950);
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+.stepCard {
+  padding: 2.5rem;
+  background: var(--dark-800);
+  border: 1px solid var(--dark-600);
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.stepCard:hover {
+  border-color: rgba(249, 115, 22, 0.3);
+  box-shadow: 0 0 40px rgba(249, 115, 22, 0.05);
+}
+
+.stepNumber {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--orange-500), rgba(249, 115, 22, 0.2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.stepCard h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.stepCard p {
+  font-size: 0.9rem;
+  color: var(--dark-200);
+  line-height: 1.6;
+}
+
+.stepDetail {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(249, 115, 22, 0.08);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  color: var(--orange-400);
+  font-weight: 600;
+}
+
+.stepLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange-500), transparent);
+}
+
+/* ===== SCORE SECTION ===== */
+.scoreSection {
+  background: var(--dark-900);
+  overflow: hidden;
+}
+
+.scoreGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.scoreVisual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.scoreRing {
+  position: relative;
+  width: 250px;
+  height: 250px;
+}
+
+.scoreCircle {
+  width: 100%;
+  height: 100%;
+}
+
+.scoreValue {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreValue span {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--orange-400), #22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.scoreValue small {
+  font-size: 0.9rem;
+  color: var(--dark-300);
+}
+
+.scoreLabels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.scoreLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--dark-100);
+  padding: 0.5rem 1rem;
+  background: var(--dark-800);
+  border-radius: var(--radius-sm);
+}
+
+.scoreContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scoreContent h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.scoreContent p {
+  font-size: 1rem;
+  color: var(--dark-200);
+  line-height: 1.7;
+}
+
+.scoreFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.scoreFeature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--dark-100);
+}
+
+.scoreFeature span {
+  font-size: 1.2rem;
+}
+
+/* ===== CTA SECTION ===== */
+.ctaSection {
+  background: var(--dark-950);
+}
+
+.ctaBox {
+  position: relative;
+  text-align: center;
+  padding: 5rem 3rem;
+  background: var(--dark-800);
+  border: 1px solid var(--dark-600);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.ctaGlow {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ctaBox h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.ctaBox p {
+  font-size: 1.1rem;
+  color: var(--dark-200);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .heroContent {
+    align-items: center;
+  }
+
+  .heroModel {
+    height: 400px;
+  }
+
+  .heroStats {
+    justify-content: center;
+  }
+
+  .pillarsTrack {
+    padding: 0 1.5rem;
+  }
+
+  .pillarCard {
+    width: 320px;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .scoreGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .heroStats {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .painGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pillarCard {
+    width: 280px;
+  }
+
+  .ctaBox {
+    padding: 3rem 1.5rem;
+  }
+}

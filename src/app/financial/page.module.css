@@ -1,0 +1,89 @@
+.page { min-height: 100vh; padding-bottom: 4rem; }
+.hero { padding: 8rem 0 3rem; text-align: center; }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-top: 1rem; }
+.heroDesc { font-size: 1.1rem; color: var(--dark-200); max-width: 600px; margin: 1rem auto 0; }
+
+.moduleTabs { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.moduleTab {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 1rem 1.5rem; background: var(--dark-800); border: 1px solid var(--dark-600);
+  border-radius: var(--radius-lg); color: var(--dark-100); font-family: var(--font-display);
+  font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; flex: 1;
+  justify-content: center; min-width: 160px;
+}
+.moduleTab:hover { border-color: var(--orange-500); color: #fff; }
+.activeTab { border-color: var(--orange-500); background: rgba(249, 115, 22, 0.1); color: var(--orange-400); }
+.tabIcon { font-size: 1.3rem; }
+
+.sectionTitle {
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+  color: #fff; margin-bottom: 1rem;
+}
+
+.alertsSection { margin-bottom: 2rem; }
+.alertsList { display: flex; flex-direction: column; gap: 0.75rem; }
+.alertItem {
+  display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem;
+  background: var(--dark-800); border-radius: var(--radius-md);
+  border: 1px solid var(--dark-600); transition: all 0.3s ease;
+}
+.alertItem.danger { border-left: 3px solid #ef4444; }
+.alertItem.warning { border-left: 3px solid #f59e0b; }
+.alertItem.info { border-left: 3px solid var(--orange-400); }
+.alertDot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.alertItem.danger .alertDot { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+.alertItem.warning .alertDot { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+.alertItem.info .alertDot { background: var(--orange-400); box-shadow: 0 0 8px var(--orange-400); }
+.alertContent { flex: 1; }
+.alertContent p { font-size: 0.9rem; color: #fff; }
+.alertContent small { font-size: 0.75rem; color: var(--dark-300); }
+
+.uploadSection { margin-bottom: 2rem; }
+.uploadBox {
+  padding: 3rem; text-align: center; background: var(--dark-800);
+  border: 2px dashed var(--dark-500); border-radius: var(--radius-lg);
+  transition: all 0.3s ease; cursor: pointer;
+}
+.uploadBox:hover { border-color: var(--orange-500); background: rgba(249, 115, 22, 0.03); }
+.uploadIcon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+.uploadBox h4 { color: #fff; margin-bottom: 0.5rem; }
+.uploadBox p { font-size: 0.85rem; color: var(--dark-200); margin-bottom: 1rem; }
+
+.tableSection { margin-bottom: 2rem; }
+.tableWrapper {
+  background: var(--dark-800); border: 1px solid var(--dark-600);
+  border-radius: var(--radius-lg); overflow: hidden; overflow-x: auto;
+}
+
+.urgentDays { color: #ef4444; font-weight: 700; }
+
+.mcaGrid { display: flex; flex-direction: column; gap: 2rem; }
+.directorsSection { }
+.directorCards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+.directorCard {
+  display: flex; align-items: center; gap: 1rem; padding: 1.25rem;
+  background: var(--dark-800); border: 1px solid var(--dark-600);
+  border-radius: var(--radius-md); transition: all 0.3s ease;
+}
+.directorCard:hover { border-color: rgba(249, 115, 22, 0.3); }
+.directorAvatar {
+  width: 48px; height: 48px; border-radius: var(--radius-md); background: var(--orange-500);
+  display: flex; align-items: center; justify-content: center; font-family: var(--font-display);
+  font-size: 1.2rem; font-weight: 800; color: #fff; flex-shrink: 0;
+}
+.directorCard strong { color: #fff; font-size: 0.9rem; }
+.directorCard p { font-size: 0.78rem; color: var(--dark-200); margin: 0; line-height: 1.5; }
+
+.tdsSummary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.tdsCard {
+  padding: 1.5rem; background: var(--dark-800); border: 1px solid var(--dark-600);
+  border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 0.5rem;
+}
+.tdsLabel { font-size: 0.78rem; color: var(--dark-200); font-family: var(--font-display); font-weight: 500; }
+.tdsValue { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: #fff; }
+
+@media (max-width: 768px) {
+  .moduleTabs { flex-direction: column; }
+  .tdsSummary { grid-template-columns: repeat(2, 1fr); }
+  .directorCards { grid-template-columns: 1fr; }
+}

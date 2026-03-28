@@ -1,0 +1,78 @@
+.page { min-height: 100vh; padding-bottom: 4rem; }
+.header { padding: 7rem 0 2rem; }
+.headerContent { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+.headerContent h1 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+.headerContent p { font-size: 1rem; color: var(--dark-200); margin-top: 0.5rem; }
+.headerActions { display: flex; gap: 0.75rem; }
+
+.statsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
+.statCard {
+  padding: 1.5rem; background: var(--dark-800); border: 1px solid var(--dark-600);
+  border-radius: var(--radius-lg); display: flex; align-items: center; gap: 1rem;
+  transition: all 0.3s ease; cursor: pointer; text-decoration: none;
+}
+.statCard:hover { border-color: rgba(249, 115, 22, 0.3); }
+.statIcon { font-size: 2rem; }
+.statInfo { display: flex; flex-direction: column; gap: 0.3rem; }
+.statLabel { font-size: 0.75rem; color: var(--dark-200); font-family: var(--font-display); font-weight: 500; }
+.statValueRow { display: flex; align-items: baseline; gap: 0.5rem; }
+.statValue { font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; color: #fff; }
+.statChange { font-size: 0.8rem; font-weight: 700; }
+.positive { color: #22c55e; }
+.negative { color: #ef4444; }
+
+.sectionTitle { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+
+.dashGrid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; margin-bottom: 3rem; }
+
+.deadlineList { display: flex; flex-direction: column; gap: 0.6rem; }
+.deadlineCard {
+  display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem;
+  background: var(--dark-800); border: 1px solid var(--dark-600); border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+.deadlineCard:hover { border-color: rgba(249, 115, 22, 0.2); }
+.deadlineCard.critical { border-left: 3px solid #ef4444; }
+.deadlineCard.warning { border-left: 3px solid #f59e0b; }
+.deadlineInfo { display: flex; flex-direction: column; gap: 0.2rem; }
+.deadlineInfo strong { font-size: 0.9rem; color: #fff; }
+.deadlineInfo span { font-size: 0.78rem; color: var(--dark-300); }
+.deadlineMeta { display: flex; align-items: center; gap: 0.75rem; }
+.pillarTag {
+  font-size: 0.65rem; padding: 0.2rem 0.5rem; background: var(--dark-600);
+  border-radius: var(--radius-full); color: var(--dark-100); font-weight: 600;
+}
+.daysLeft { font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: var(--dark-100); }
+.daysLeft.urgent { color: #ef4444; }
+
+.actionsGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+.actionCard {
+  display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem;
+  background: var(--dark-800); border: 1px solid var(--dark-600); border-radius: var(--radius-md);
+  cursor: pointer; transition: all 0.3s ease; font-size: 0.85rem; color: var(--dark-100);
+  font-family: var(--font-display); font-weight: 600;
+}
+.actionCard:hover { border-color: var(--orange-500); color: #fff; background: rgba(249, 115, 22, 0.05); }
+.actionIcon { font-size: 1.3rem; }
+
+.pillarGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.pillarCard {
+  padding: 1.25rem; background: var(--dark-800); border: 1px solid var(--dark-600);
+  border-radius: var(--radius-md); transition: all 0.3s ease; cursor: pointer;
+}
+.pillarCard:hover { border-color: rgba(249, 115, 22, 0.3); }
+.pillarHeader { display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.82rem; }
+.pillarHeader span:first-child { color: var(--dark-100); font-weight: 600; }
+.pillarPercent { font-family: var(--font-display); font-weight: 800; color: #fff; }
+
+@media (max-width: 1024px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .dashGrid { grid-template-columns: 1fr; }
+  .pillarGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .statsGrid { grid-template-columns: 1fr; }
+  .pillarGrid { grid-template-columns: 1fr; }
+  .actionsGrid { grid-template-columns: 1fr; }
+  .headerContent { flex-direction: column; }
+}
