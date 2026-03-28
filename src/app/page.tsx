@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AnimatedSection from '@/components/AnimatedSection';
 import Link from 'next/link';
@@ -113,32 +114,27 @@ export default function HomePage() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.95]);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (typeof window === 'undefined') return;
 
-    // GSAP horizontal scroll for pillars
-    const ctx = gsap.context(() => {
-      const pillarsSection = pillarsRef.current;
-      if (!pillarsSection) return;
+    const pillarsSection = pillarsRef.current;
+    if (!pillarsSection) return;
 
-      const scrollContainer = pillarsSection.querySelector(`.${styles.pillarsTrack}`);
-      if (!scrollContainer) return;
+    const scrollContainer = pillarsSection.querySelector(`.${styles.pillarsTrack}`);
+    if (!scrollContainer) return;
 
-      gsap.to(scrollContainer, {
-        x: () => -(scrollContainer.scrollWidth - window.innerWidth + 100),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: pillarsSection,
-          pin: true,
-          scrub: 1,
-          end: () => '+=' + scrollContainer.scrollWidth,
-          invalidateOnRefresh: true,
-        },
-      });
+    gsap.to(scrollContainer, {
+      x: () => -(scrollContainer.scrollWidth - window.innerWidth + 100),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: pillarsSection,
+        pin: true,
+        scrub: 1,
+        end: () => '+=' + scrollContainer.scrollWidth,
+        invalidateOnRefresh: true,
+      },
     });
-
-    return () => ctx.revert();
-  }, []);
+  }, { scope: pillarsRef });
 
   // Auto-rotate active card
   useEffect(() => {

@@ -151,21 +151,15 @@ function ParticleField({ mouse }: { mouse: React.MutableRefObject<{ x: number; y
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
         <bufferAttribute
           attach="attributes-aSize"
-          count={particleCount}
-          array={sizes}
-          itemSize={1}
+          args={[sizes, 1]}
         />
         <bufferAttribute
           attach="attributes-aColor"
-          count={particleCount}
-          array={colors}
-          itemSize={3}
+          args={[colors, 3]}
         />
       </bufferGeometry>
       <primitive object={shaderMaterial} ref={materialRef} attach="material" />
